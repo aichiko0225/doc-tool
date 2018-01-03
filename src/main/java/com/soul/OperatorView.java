@@ -15,6 +15,8 @@ class OperatorView extends JFrame {
 
     private JLabel fileNumLabel;
 
+    private WordRead reader;
+
     OperatorView(String title) {
         super(title);
 
@@ -47,6 +49,7 @@ class OperatorView extends JFrame {
                 selectFiles();
             }else if (command.equals("generateFile")) {
                 System.out.print("生成文件！！！");
+                generateFils();
             }
         }
     }
@@ -68,13 +71,17 @@ class OperatorView extends JFrame {
                 for (int i = 0; i < fileChooser.getSelectedFiles().length; i++) {
                     paths.add(fileChooser.getSelectedFiles()[i].getAbsolutePath());
                 }
-                WordRead reader = new WordRead(paths);
-
+                reader = new WordRead(paths);
             }
         }catch (HeadlessException exception) {
             exception.printStackTrace();
         }
+    }
 
+    private void generateFils() {
+        System.out.println(reader.mapArrayList);;
+        GenerateExcel generateExcel = new GenerateExcel(reader.mapArrayList);
+        generateExcel.generate();
     }
 
     private void layoutViews() {
