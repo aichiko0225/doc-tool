@@ -1,0 +1,15 @@
+<project name="doc-tool">
+
+    <taskdef name="doc-tool"
+             classname="net.sourceforge.jarbundler.JarBundler" classpath="lib/doc-tool.jar"/>
+
+    <target name="bundle">
+
+        <jarbundler dir="release"
+                    icon="logo.icns"
+                    mainclass="com.soul.Main"
+                    name="doc-tool"
+                    jar="doc-tool.jar"/>
+    </target>
+
+</project>

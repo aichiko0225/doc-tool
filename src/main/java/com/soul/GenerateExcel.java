@@ -120,6 +120,9 @@ class GenerateExcel {
             HSSFCellStyle cellStyle = workbook.createCellStyle();
             cellStyle.setAlignment(HorizontalAlignment.CENTER);
             cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+            HSSFFont font = workbook.createFont();
+            font.setFontHeight((short) 240);
+            cellStyle.setFont(font);
 
             ArrayList<String> user_info_keys = style == ExcelStyle.Quantitative ? user_info_keys_1 : user_info_keys_2;
             ArrayList<String> resultKeys = style == ExcelStyle.Quantitative ? resultKeys_1: resultKeys_2;
